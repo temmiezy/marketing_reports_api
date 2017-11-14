@@ -1,0 +1,9 @@
+marketing_app:
+  container_name: marketing_app
+  build: ./marketing_app
+  ports:
+    - "9001:80"
+  volumes:
+    - /var/www/marketing-rest-api:/var/www/marketing-rest-api
+    - /var/www/marketing-rest-api/marketing-docker/marketing_app/data/marketing.conf:/etc/nginx/sites-available/marketing.conf
+

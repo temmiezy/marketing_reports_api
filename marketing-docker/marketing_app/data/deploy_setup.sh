@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Update vendoer of marketing_app
+cd /var/www/marketing-rest-api
+/usr/local/bin/composer/composer.phar install
+
+# Clean all caches
+php bin/console cache:clear --env=prod
+php bin/console cache:clear --env=dev
+php bin/console cache:clear --env=test
+
+# Apply all rights on cache folder again
+chmod o+rwx /var/www/marketing-rest-api/var/cache -R
+chmod o+rwx /var/www/marketing-rest-api/var/logs -R
+chmod o+rwx /var/www/marketing-rest-api/var/sessions -R

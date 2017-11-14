@@ -1,0 +1,9 @@
+services:
+#    service_name:
+#        class: AppBundle\Directory\ClassName
+#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+
+services:
+    app.report_service:
+        class: AppBundle\Service\ReportService
+        arguments: ["@doctrine.orm.entity_manager"]
